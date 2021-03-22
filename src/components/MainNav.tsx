@@ -17,13 +17,7 @@ function MainNav() {
       <Link to="/">
         <span>Inform Yourself</span>
       </Link>
-      {isCheck ? (
-        'profile'
-      ) : (
-        <Link to="/mypage">
-          <i className="far fa-address-card fa-3x" />
-        </Link>
-      )}
+      {isCheck ? 'profile' : <i className="far fa-address-card fa-3x" />}
     </div>
   );
 }
