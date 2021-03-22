@@ -1,3 +1,1 @@
-# inform-yourself
-
-# start inform_yourself
+# Inform Yourself
