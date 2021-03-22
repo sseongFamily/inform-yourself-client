@@ -1,1 +1,1 @@
-# Inform Yourself
+# inform-yourself
