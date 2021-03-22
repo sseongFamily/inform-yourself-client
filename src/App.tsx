@@ -1,8 +1,13 @@
 import React from 'react';
 import './App.css';
+import MainNav from './components/MainNav';
 
 function App() {
-  return <div>Hello World</div>;
+  return (
+    <div>
+      <MainNav />
+    </div>
+  );
 }
 
 export default App;
