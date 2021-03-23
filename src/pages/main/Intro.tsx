@@ -6,6 +6,8 @@ function Intro() {
       style={{
         display: 'flex',
         height: '100vh',
+        width: '100%',
+        boxSizing: 'border-box',
         alignItems: 'center',
         justifyContent: 'center',
       }}

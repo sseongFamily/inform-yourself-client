@@ -6,14 +6,16 @@ import styled from 'styled-components';
 import DropDown from './DropDown';
 const Nav = styled.div`
   height: 70px;
-  border-bottom: 2px solid #333;
+  box-sizing: border-box;
   position: relative;
 `;
 
 const Container = styled.div`
   display: flex;
   width: 100%;
+  border-bottom: 2px solid #333;
   height: 70px;
+  box-sizing: border-box;
   position: fixed;
   justify-content: space-between;
   align-items: center;
