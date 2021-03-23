@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router';
+import './Reset.css';
 import './App.css';
 import MainNav from './components/MainNav';
 import Home from './pages/main/Home';
