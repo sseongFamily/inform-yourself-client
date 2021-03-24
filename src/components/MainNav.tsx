@@ -19,6 +19,8 @@ const Container = styled.div`
   position: fixed;
   justify-content: space-between;
   align-items: center;
+  background-color: white;
+  z-index: 10;
 `;
 
 const InfoCard = styled(Clipboard)`
