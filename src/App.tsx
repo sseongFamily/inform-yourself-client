@@ -12,7 +12,7 @@ function App() {
   return (
     <div>
       {/* signIn, signUp Page에서는 Nav바 안 보이게 설정 */}
-      {/* <MainNav /> */}
+      <MainNav />
       <Switch>
         <Route path="/" exact render={() => <Home />} />
         <Route path="/signup" render={() => <SignUp />} />
