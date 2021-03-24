@@ -16,15 +16,6 @@ const SubMenuList = styled.li`
 
 function DropDown(props: DropDownProps) {
   return props.isCheck ? (
-    <Switch>
-      <Link to="/signin">
-        <SubMenuList>로그인</SubMenuList>
-      </Link>
-      <Link to="/signup">
-        <SubMenuList>회원가입</SubMenuList>
-      </Link>
-    </Switch>
-  ) : (
     <>
       <Switch>
         <Link to="/mypage">
@@ -32,6 +23,15 @@ function DropDown(props: DropDownProps) {
         </Link>
       </Switch>
       <SubMenuList>로그아웃</SubMenuList>
+    </>
+  ) : (
+    <>
+      <Link to="/signin">
+        <SubMenuList>로그인</SubMenuList>
+      </Link>
+      <Link to="/signup">
+        <SubMenuList>회원가입</SubMenuList>
+      </Link>
     </>
   );
 }

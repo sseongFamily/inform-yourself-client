@@ -48,7 +48,8 @@ const SubMenu = styled.ul`
   border: 2px solid #000;
   border-radius: 10px;
   text-align: center;
-  position: absolute;
+  position: fixed;
+  z-index: 999;
   list-style: none;
   right: 56px;
   top: 80px;
@@ -60,27 +61,29 @@ function MainNav() {
   const [isCheck, setIsCheck] = useState(false);
   const [menuCheck, setMenuCheck] = useState(false);
 
-  const subMenuBox = useRef<HTMLDivElement>(null);
+  // useRef를 2개로 나눈 이유는 각각의 element 태그 타입이 달라서 !!
+  // 첫 번째는 div태그, 두 번째는 svg(icon) 태그
+  const subMenuBoxDiv = useRef<HTMLDivElement>(null);
+  const subMenuBoxStyle = useRef<SVGSVGElement>(null);
 
   const menuToggle = () => {
     setMenuCheck(!menuCheck);
   };
 
   const handleClickOutside = (event: any): void => {
-    if (subMenuBox.current && !subMenuBox.current.contains(event.target)) {
-      console.log(subMenuBox);
+    if (subMenuBoxDiv.current && !subMenuBoxDiv.current.contains(event.target)) {
+      setMenuCheck(false);
+    } else if (subMenuBoxStyle.current && !subMenuBoxStyle.current.contains(event.target)) {
       setMenuCheck(false);
     }
-    console.log(subMenuBox);
   };
 
   useEffect(() => {
-    console.log('fsfd');
     window.addEventListener('click', handleClickOutside);
     return () => {
       window.removeEventListener('click', handleClickOutside);
     };
-  }, [subMenuBox]);
+  }, [subMenuBoxDiv, subMenuBoxStyle]);
 
   return (
     <Nav>
@@ -92,11 +95,9 @@ function MainNav() {
           <Logo>Inform Yourself</Logo>
         </Link>
         {isCheck ? (
-          <div style={{ border: '1px solid red' }} ref={subMenuBox}>
-            <UserInfoBtn size="48" onClick={menuToggle} />
-          </div>
+          <Profile onClick={menuToggle} ref={subMenuBoxDiv} />
         ) : (
-          <Profile onClick={menuToggle} ref={subMenuBox} />
+          <UserInfoBtn size="48" onClick={menuToggle} ref={subMenuBoxStyle} />
         )}
       </Container>
       {menuCheck && (
