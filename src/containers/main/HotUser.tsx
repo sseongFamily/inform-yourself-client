@@ -29,7 +29,6 @@ function NewUser() {
         display: 'flex',
         flexDirection: 'column',
         height: '50vh',
-        border: '1px solid black',
         alignItems: 'center',
         justifyContent: 'center',
       }}
@@ -38,7 +37,6 @@ function NewUser() {
       <div
         style={{
           display: 'flex',
-          border: '1px solid blue',
           justifyContent: 'center',
           alignItems: 'center',
         }}

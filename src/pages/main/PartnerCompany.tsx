@@ -23,7 +23,7 @@ function PartnerCompany() {
   return (
     <CompanyContainer>
       <H1Element>Partner Company (준비중입니다)</H1Element>
-      <DivElement>파트너사 목록 보여주기</DivElement>
+      <DivElement></DivElement>
     </CompanyContainer>
   );
 }
