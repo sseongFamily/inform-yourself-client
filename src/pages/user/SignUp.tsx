@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import SignUpImage from '../../images/signup_img.svg';
+import { ArrowBack } from '@styled-icons/evaicons-solid';
 
 const SignUpContainer = styled.div`
   height: 100vh;
@@ -60,6 +61,17 @@ const ButtonElement = styled.button`
   margin-top: 100px;
 `;
 
+const BackButton = styled(ArrowBack)`
+  width: 72%;
+  height: 30px;
+  border: 1px solid #333;
+  border-radius: 30px;
+  margin: 0 auto;
+  margin-top: 30px;
+  background-color: #efefef;
+  cursor: pointer;
+`;
+
 function SignUp() {
   return (
     <SignUpContainer>
@@ -72,6 +84,7 @@ function SignUp() {
             <InputElement type="text" placeholder="Name" />
             <InputElement type="text" placeholder="ex) 01012345678" />
             <ButtonElement>Sign Up</ButtonElement>
+            <BackButton size="48" />
           </InputBox>
         </div>
       </LeftArea>
