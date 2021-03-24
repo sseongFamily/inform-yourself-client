@@ -39,7 +39,7 @@ const InputDiv = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  padding-top: 50px;
+  padding-top: 70px;
   border: 1px solid #333;
   border-radius: 20px;
 `;
