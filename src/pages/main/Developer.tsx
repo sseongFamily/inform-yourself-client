@@ -4,7 +4,7 @@ import SeokWon from '../../components/SeokWon';
 
 function Developer() {
   return (
-    <div>
+    <div style={{ height: '100vh', border: '1px solid green' }}>
       <SeokWon />
       <SeokMin />
     </div>
