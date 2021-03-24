@@ -31,7 +31,7 @@ function UserCard(props: UserInfo) {
       <div className="infoSection" style={{ display: 'flex' }}>
         <div
           style={{
-            backgroundImage: `url(https://picsum.photos/120/100)`,
+            backgroundImage: `url(${props.profileImage})`,
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
             width: '180px',
