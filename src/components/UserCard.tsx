@@ -63,10 +63,7 @@ function UserCard(props: UserInfo) {
         </div>
       </div>
 
-      <div
-        className="stackSection"
-        style={{ margin: '0 5%', display: 'flex', border: '1px solid red' }}
-      >
+      <div className="stackSection" style={{ margin: '0 5%', display: 'flex' }}>
         {props.stack.map((el, idx) => (
           <div key={idx} style={{}}>
             <Stack>{el}</Stack>
