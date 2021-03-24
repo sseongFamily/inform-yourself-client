@@ -1,5 +1,3 @@
-import React from 'react';
-import SloganImage from '../../images/slogan_bg.svg';
 function Intro() {
   return (
     <div
@@ -24,7 +22,7 @@ function Intro() {
           style={{
             width: '100%',
             height: '100%',
-            backgroundImage: `url(${SloganImage})`,
+            backgroundImage: `url(../images/slogan_bg.svg)`,
             backgroundSize: 'contain',
             backgroundPosition: 'center center',
             backgroundRepeat: 'no-repeat',

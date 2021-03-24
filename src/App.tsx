@@ -11,18 +11,12 @@ import UserCard from './components/UserCard';
 function App() {
   return (
     <div>
-      {/* <MainNav />
+      <MainNav />
       <Switch>
         <Route path="/" exact render={() => <Home />} />
         <Route path="/signup" render={() => <SignUp />} />
         <Route path="/signin" render={() => <SignIn />} />
-      </Switch> */}
-      <UserCard
-        userName={'성석원'}
-        profileImage={'../images/sseong.png'}
-        oneLineIntroduce="잘부탁 드립니다"
-        stack={['JavaScript', 'React', 'Redux']}
-      />
+      </Switch>
     </div>
   );
 }
