@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import CompanyImage from '../../images/undraw_Tree_swing_646s.png';
 
 const CompanyContainer = styled.div`
-  border: 1px solid red;
   height: 100vh;
 `;
 
@@ -14,7 +13,6 @@ const H1Element = styled.h1`
 
 const DivElement = styled.div`
   height: 100%;
-  border: 1px solid red;
   background-image: url(${CompanyImage});
   background-size: contain;
   background-position: center center;
