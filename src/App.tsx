@@ -6,6 +6,7 @@ import MainNav from './components/MainNav';
 import Home from './pages/main/Home';
 import SignUp from './pages/user/SignUp';
 import SignIn from './pages/user/SignIn';
+import UserCard from './components/UserCard';
 
 function App() {
   return (
