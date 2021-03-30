@@ -6,7 +6,7 @@ export const login = async (email: string, password: string) => {
     password,
   });
   const { accessToken } = result.data;
-}
+};
 
 export const signUp = async (
   email: string,
