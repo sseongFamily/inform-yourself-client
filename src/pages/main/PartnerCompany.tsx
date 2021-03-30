@@ -22,7 +22,7 @@ const DivElement = styled.div`
 function PartnerCompany() {
   return (
     <CompanyContainer>
-      <H1Element>Partner Company (준비중입니다)</H1Element>
+      <H1Element>Partner Company (ing...)</H1Element>
       <DivElement></DivElement>
     </CompanyContainer>
   );
