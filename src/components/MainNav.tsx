@@ -32,6 +32,7 @@ const Logo = styled.span`
 
 const UserInfoBtn = styled(UserCircle)`
   margin-right: 100px;
+  cursor: pointer;
 `;
 
 const Profile = styled.div`
@@ -42,6 +43,7 @@ const Profile = styled.div`
   border: 1px solid #333;
   background-image: url('');
   background-size: contain;
+  cursor: pointer;
 `;
 
 const SubMenu = styled.ul`
