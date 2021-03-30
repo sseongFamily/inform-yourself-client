@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import styled from 'styled-components';
 import SignUpImage from '../../images/signup_img.svg';
 import { ArrowBack } from '@styled-icons/evaicons-solid';
+import { signUp } from '../../api/UserApi';
+import { useHistory } from 'react-router';
 
 const SignUpContainer = styled.div`
   height: 100vh;
@@ -73,17 +75,98 @@ const BackButton = styled(ArrowBack)`
 `;
 
 function SignUp() {
+  const history = useHistory();
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [userName, setUserName] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [birthday, setBirthday] = useState('');
+
+  const handleChangeInputElement = (event: ChangeEvent<HTMLInputElement>) => {
+    switch (event.target.name) {
+      case 'email':
+        setEmail(event.target.value);
+        break;
+      case 'password':
+        return setPassword(event.target.value);
+      case 'userName':
+        return setUserName(event.target.value);
+      case 'phoneNumber':
+        return setPhoneNumber(event.target.value);
+      case 'birthday':
+        return setBirthday(event.target.value);
+      default:
+        return;
+    }
+  };
+
+  const handleRequestSignUp = async () => {
+    if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+      alert('이메일 형식을 확인해주세요.');
+      return;
+    }
+    if (password.length > 20 || password.length <= 7) {
+      alert('비밀번호는 8~20자 입니다.');
+      return;
+    }
+    if (userName === '') {
+      alert('이름을 확인해주세요.');
+      return;
+    }
+    if (!/^01(?:0|1|[6-9])(?:\d{3}|\d{4})\d{4}$/.test(phoneNumber)) {
+      alert('핸드폰 번호를 확인해주세요.');
+      return;
+    }
+    if (birthday === '') {
+      alert('생년월일을 확인해주세요');
+      return;
+    }
+
+    //* src/api.UserApi.ts 파일 참조
+    // 회원가입이 끝나면 로그인 페이지로 이동 시킨다.
+    (await signUp(email, password, userName, phoneNumber, birthday))
+      ? history.push('/signin')
+      : alert('중복된 이메일 입니다.');
+  };
+
   return (
     <SignUpContainer>
       <LeftArea>
         <div>
           <UserImage></UserImage>
           <InputBox>
-            <InputElement type="text" placeholder="email" />
-            <InputElement type="password" placeholder="password" />
-            <InputElement type="text" placeholder="Name" />
-            <InputElement type="text" placeholder="ex) 01012345678" />
-            <ButtonElement>Sign Up</ButtonElement>
+            <InputElement
+              type="text"
+              name="email"
+              placeholder="email"
+              onChange={handleChangeInputElement}
+            />
+            <InputElement
+              type="password"
+              name="password"
+              placeholder="password"
+              onChange={handleChangeInputElement}
+            />
+            <InputElement
+              type="text"
+              name="userName"
+              placeholder="Name"
+              onChange={handleChangeInputElement}
+            />
+            <InputElement
+              type="text"
+              name="phoneNumber"
+              placeholder="ex) 01012345678"
+              onChange={handleChangeInputElement}
+            />
+            <InputElement
+              type="date"
+              name="birthday"
+              placeholder="birthday"
+              onChange={handleChangeInputElement}
+            />
+            <ButtonElement onClick={handleRequestSignUp}>Sign Up</ButtonElement>
             <BackButton size="48" />
           </InputBox>
         </div>

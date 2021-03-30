@@ -31,7 +31,10 @@
     "start": "NODE_PATH=public react-scripts start",
     "build": "NODE_PATH=public react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "aws s3 sync ./build s3://inform-yourself.live --profile=inform-yourself_front",
+    "invalidate": "aws cloudfront create-invalidation --profile=inform-yourself_front --distribution-id EQ2JEKVKVZF0 --paths / /index.html /error.html /service-worker.js /manifest.json /favicon.ico",
+    "s3": "yarn build && yarn deploy && yarn invalidate"
   },
   "eslintConfig": {
     "extends": [
