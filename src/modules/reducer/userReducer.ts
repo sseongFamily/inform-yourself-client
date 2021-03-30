@@ -14,6 +14,8 @@ const userReducer = (state: UserState = initialState, action: UserAction): UserS
       return {
         accessToken: action.payload,
       };
+    default:
+      return state;
   }
 };
 
