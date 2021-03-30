@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import SignInImage from '../../images/undraw_Login_re_4vu2.png';
-
+import { login } from '../../api/UserApi';
 const SignInContainer = styled.div`
   height: 100vh;
   display: flex;
@@ -62,15 +62,40 @@ const ButtonElement = styled.button`
 `;
 
 function Signin() {
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+
+  const handleLogin = async () => {
+    await login(email, password);
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    switch (e.target.name) {
+      case 'email':
+        setEmail(e.target.value);
+        break;
+      case 'password':
+        setPassword(e.target.value);
+        break;
+      default:
+        break;
+    }
+  };
+
   return (
     <SignInContainer>
       <LeftArea>
         <div>
           <UserImage></UserImage>
           <InputDiv>
-            <InputElement type="text" placeholder="email" />
-            <InputElement type="password" placeholder="password" />
-            <ButtonElement>Sign In</ButtonElement>
+            <InputElement type="text" placeholder="email" name="email" onChange={handleChange} />
+            <InputElement
+              type="password"
+              placeholder="password"
+              name="password"
+              onChange={handleChange}
+            />
+            <ButtonElement onClick={handleLogin}>Sign In</ButtonElement>
             <ButtonElement>Sign Up</ButtonElement>
             <button>Kakao</button>
             <button>GitHub</button>
