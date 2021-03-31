@@ -70,9 +70,8 @@ function Signin() {
   const dispatch = useDispatch();
 
   const handleLogin = async () => {
-    const result = await login(email, password);
-
-    dispatch(userLogin(result.userInfo, result.accessToken));
+    const userInfo = await login(email, password);
+    dispatch(userLogin(userInfo));
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

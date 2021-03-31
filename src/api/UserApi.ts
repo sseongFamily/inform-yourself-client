@@ -1,22 +1,19 @@
 import axios from 'axios';
-import { UserInfo } from '../types/userType';
+import { UserState } from '../types/userType';
 
-export const login = async (
-  email: string,
-  password: string
-): Promise<{ userInfo: UserInfo; accessToken: string }> => {
+export const login = async (email: string, password: string): Promise<UserState> => {
   const result = await axios.post('/user/login', {
     email,
     password,
   });
   const { accessToken } = result.data;
-  const userInfo = await axios.get('/user', {
+  const info = await axios.get('/user', {
     headers: {
       Authorization: `Bearer ${accessToken}`,
     },
   });
-  console.log(userInfo);
-  return { userInfo: userInfo.data.userInfo, accessToken };
+  const { userInfo, userCard } = info.data;
+  return { userInfo, cardInfo: userCard[0], accessToken };
 };
 
 export const signUp = async (
