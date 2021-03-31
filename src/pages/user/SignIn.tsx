@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import SignInImage from '../../images/undraw_Login_re_4vu2.png';
 import { login } from '../../api/UserApi';
+import { useDispatch } from 'react-redux';
+import { userLogin } from '../../modules/user';
+
 const SignInContainer = styled.div`
   height: 100vh;
   display: flex;
@@ -64,9 +67,12 @@ const ButtonElement = styled.button`
 function Signin() {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+  const dispatch = useDispatch();
 
   const handleLogin = async () => {
-    await login(email, password);
+    const result = await login(email, password);
+
+    dispatch(userLogin(result.userInfo, result.accessToken));
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

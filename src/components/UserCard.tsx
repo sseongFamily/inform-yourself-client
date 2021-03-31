@@ -57,9 +57,10 @@ function UserCard(props: UserInfo) {
           <div className="name" style={{ flexGrow: 0 }}>
             <h2 style={{ fontSize: '28px' }}>{props.userName}</h2>
           </div>
-          <div className="oneLine" style={{ flexGrow: 0, marginTop: '10%', fontSize: '18px' }}>
-            {props.oneLineIntroduce}
-          </div>
+          <div
+            className="oneLine"
+            style={{ flexGrow: 0, marginTop: '10%', fontSize: '18px' }}
+          ></div>
         </div>
       </div>
 
