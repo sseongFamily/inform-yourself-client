@@ -19,7 +19,6 @@ function SeokMin() {
       <UserCard
         profileImage={'../images/signup_img.svg'}
         userName={'성석민'}
-        oneLineIntroduce={'테스트 입니다.'}
         stack={['javascript', 'node']}
       />
       <Box>
