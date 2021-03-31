@@ -1,6 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { UserInfo } from '../types/userType';
 import styled from 'styled-components';
+import { infoCardDetail } from '../api/UserApi';
+import Modal from 'react-modal';
+import { useDispatch, useSelector } from 'react-redux';
+import { detailCardInfo } from '../modules/infoCard';
+import { RootState } from '../modules/reducer';
 
 const Stack = styled.div`
   margin: 0 3%;
@@ -11,8 +16,20 @@ const Stack = styled.div`
 `;
 
 function UserCard(props: UserInfo) {
+  const state = useSelector((state: RootState) => state);
+  //? infoCard를 눌렀을 경우 detail하게 보여주는 state
+  const { detailList } = state.infoCardReducer;
+  const dispatch = useDispatch();
+
   const makeColor = () => {
     // TODO :  Stack카드 색상 랜덤으로 뿌려주기
+  };
+
+  const handleDetailPage = async () => {
+    // detail 정보 요청 가져오기
+    const detailInfo = await infoCardDetail(Number(props.cardId));
+    //Todo: dispatch를 이용해 deatilInfo 저장하기
+    dispatch(detailCardInfo(detailInfo));
   };
   return (
     <div
@@ -26,7 +43,10 @@ function UserCard(props: UserInfo) {
         height: '200px',
         borderRadius: '15%',
         justifyContent: 'space-around',
+        cursor: 'pointer',
+        border: '1px solid red',
       }}
+      onClick={handleDetailPage}
     >
       <div className="infoSection" style={{ display: 'flex' }}>
         <div
@@ -42,7 +62,6 @@ function UserCard(props: UserInfo) {
             flexBasis: '160px',
           }}
         />
-
         <div
           className="content"
           style={{
