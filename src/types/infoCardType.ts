@@ -2,6 +2,7 @@ import { UserInfo } from './userType';
 
 export type CardState = {
   hotAndNewList: HotAndNewInfo;
+  detailList: CardInfo[];
 };
 
 export type CardInfo = {

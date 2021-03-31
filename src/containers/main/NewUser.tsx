@@ -25,16 +25,20 @@ function NewUser({ newUser }: NewUserProps) {
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
+          border: '1px solid red',
         }}
       >
         {newUser.map((el, idx) => (
-          <UserCard
-            key={idx}
-            profileImage={el.profileImage}
-            userName={el.userName}
-            oneLineIntroduce={el.oneLineIntroduce}
-            stack={el.stack}
-          />
+          <div>
+            <UserCard
+              key={idx}
+              cardId={el.cardId}
+              profileImage={el.profileImage}
+              userName={el.userName}
+              oneLineIntroduce={el.oneLineIntroduce}
+              stack={el.stack}
+            />
+          </div>
         ))}
       </div>
     </div>

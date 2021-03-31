@@ -6,6 +6,7 @@ const initialState: CardState = {
     hotUser: [],
     newUser: [],
   },
+  detailList: [],
 };
 
 const infoCardReducer = (state: CardState = initialState, action: InfoCardAction): CardState => {
@@ -17,6 +18,11 @@ const infoCardReducer = (state: CardState = initialState, action: InfoCardAction
           hotUser: action.payload.hotUser,
           newUser: action.payload.newUser,
         },
+      };
+    case 'user/DETAILCARDINFO':
+      return {
+        ...state,
+        detailList: action.payload,
       };
     default:
       return state;

@@ -8,6 +8,7 @@ export type UserState = {
 };
 
 export type UserInfo = {
+  cardId?: number;
   profileImage: string;
   userName: string;
   oneLineIntroduce: CardInfo['oneLineIntroduce'];

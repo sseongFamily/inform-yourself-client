@@ -19,6 +19,7 @@ function Home() {
 
   const getHotAndNewInfo = async () => {
     const list = await hotAndNewUserInfo();
+
     dispatch(hotAndNewUserInfoAction(list));
   };
   return (
