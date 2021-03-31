@@ -19,6 +19,7 @@ function SeokWon() {
       <UserCard
         profileImage={'../images/signup_img.svg'}
         userName={'성석원'}
+        oneLineIntroduce={'타입스크립트는 어려워'}
         stack={['javascript', 'node']}
       />
       <Box>

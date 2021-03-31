@@ -1,10 +1,10 @@
-import { UserInfo } from '../types/userType';
+import { UserState } from '../types/userType';
 
 const USERLOGIN = 'user/LOGIN' as const;
 
-export const userLogin = (userInfo: UserInfo, accessToken: string) => ({
+export const userLogin = (userInfo: UserState) => ({
   type: USERLOGIN,
-  payload: { accessToken, userInfo },
+  payload: userInfo,
 });
 
 export type UserAction = ReturnType<typeof userLogin>;

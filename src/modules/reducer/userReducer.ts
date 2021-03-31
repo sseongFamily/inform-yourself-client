@@ -1,17 +1,10 @@
-import { CardInfo } from '../../types/infoCardType';
-import { UserInfo } from '../../types/userType';
+import { UserState } from '../../types/userType';
 import { UserAction } from '../user';
-
-type UserState = {
-  userInfo: UserInfo;
-  cardInfo: CardInfo;
-  accessToken: string;
-  isLogin: boolean;
-};
 
 const initialState: UserState = {
   userInfo: {
     profileImage: '',
+    oneLineIntroduce: '',
     userName: '',
     stack: [],
   },
@@ -31,9 +24,11 @@ const initialState: UserState = {
 const userReducer = (state: UserState = initialState, action: UserAction): UserState => {
   switch (action.type) {
     case 'user/LOGIN':
+      console.log(action.payload);
       return {
         ...state,
         userInfo: action.payload.userInfo,
+        cardInfo: action.payload.cardInfo,
         accessToken: action.payload.accessToken,
         isLogin: true,
       };

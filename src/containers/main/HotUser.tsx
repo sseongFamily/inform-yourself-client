@@ -7,16 +7,19 @@ function NewUser() {
     {
       profileImage: 'https://picsum.photos/120/100',
       userName: '성석원',
+      oneLineIntroduce: '가나다라마바사아자차카',
       stack: ['JavaScript', 'React', 'NodeJs'],
     },
     {
       profileImage: 'https://picsum.photos/120/100',
       userName: '성석민',
+      oneLineIntroduce: '가나다라마바사아자차카',
       stack: ['JavaScript', 'React', 'NodeJs', 'TypeScript'],
     },
     {
       profileImage: 'https://picsum.photos/120/100',
       userName: '성석준',
+      oneLineIntroduce: '가나다라마바사아자차카',
       stack: ['React', 'NodeJs', 'TypeScript'],
     },
   ]);
@@ -43,6 +46,7 @@ function NewUser() {
             key={idx}
             profileImage={el.profileImage}
             userName={el.userName}
+            oneLineIntroduce={el.oneLineIntroduce}
             stack={el.stack}
           />
         ))}
