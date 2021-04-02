@@ -2,7 +2,7 @@ import { CardInfo } from './infoCardType';
 
 export type UserState = {
   userInfo: UserInfo;
-  cardInfo: CardInfo;
+  cardInfo?: CardInfo;
   accessToken: string;
   isLogin?: boolean;
 };
@@ -10,6 +10,6 @@ export type UserState = {
 export type UserInfo = {
   profileImage: string;
   userName: string;
-  oneLineIntroduce: CardInfo['oneLineIntroduce'];
+  oneLineIntroduce: string;
   stack: string[];
 };

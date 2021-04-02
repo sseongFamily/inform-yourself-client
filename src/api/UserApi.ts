@@ -7,12 +7,19 @@ export const login = async (email: string, password: string): Promise<UserState>
     password,
   });
   const { accessToken } = result.data;
+  console.log(accessToken);
   const info = await axios.get('/user', {
     headers: {
       Authorization: `Bearer ${accessToken}`,
     },
   });
+
   const { userInfo, userCard } = info.data;
+  if (!userCard) {
+    return { userInfo, accessToken };
+  }
+  userInfo.oneLineIntroduce = userCard[0].oneLineIntroduce;
+  userInfo.stack = [...userCard[0].stack];
   return { userInfo, cardInfo: userCard[0], accessToken };
 };
 

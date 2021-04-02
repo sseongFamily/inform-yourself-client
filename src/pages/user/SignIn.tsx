@@ -4,6 +4,7 @@ import SignInImage from '../../images/undraw_Login_re_4vu2.png';
 import { login } from '../../api/UserApi';
 import { useDispatch } from 'react-redux';
 import { userLogin } from '../../modules/user';
+import { useHistory } from 'react-router';
 
 const SignInContainer = styled.div`
   height: 100vh;
@@ -68,10 +69,12 @@ function Signin() {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const handleLogin = async () => {
     const userInfo = await login(email, password);
     dispatch(userLogin(userInfo));
+    history.push('/');
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

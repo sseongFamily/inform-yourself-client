@@ -1,5 +1,5 @@
 import React from 'react';
-import { UserInfo } from '../types/userType';
+import { UserState } from '../types/userType';
 import styled from 'styled-components';
 
 const Stack = styled.div`
@@ -10,10 +10,12 @@ const Stack = styled.div`
   line-height: 30px;
 `;
 
-function UserCard(props: UserInfo) {
+function UserCard(props: UserState['userInfo']) {
   const makeColor = () => {
     // TODO :  Stack카드 색상 랜덤으로 뿌려주기
   };
+
+  const { userName, stack, profileImage, oneLineIntroduce } = props;
   return (
     <div
       style={{
@@ -31,7 +33,7 @@ function UserCard(props: UserInfo) {
       <div className="infoSection" style={{ display: 'flex' }}>
         <div
           style={{
-            backgroundImage: `url(${props.profileImage})`,
+            backgroundImage: `url(${profileImage})`,
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
             width: '180px',
@@ -55,16 +57,16 @@ function UserCard(props: UserInfo) {
           }}
         >
           <div className="name" style={{ flexGrow: 0 }}>
-            <h2 style={{ fontSize: '28px' }}>{props.userName}</h2>
+            <h2 style={{ fontSize: '28px' }}>{userName}</h2>
           </div>
           <div className="oneLine" style={{ flexGrow: 0, marginTop: '10%', fontSize: '18px' }}>
-            {props.oneLineIntroduce}
+            {oneLineIntroduce}
           </div>
         </div>
       </div>
 
       <div className="stackSection" style={{ margin: '0 5%', display: 'flex' }}>
-        {props.stack.map((el, idx) => (
+        {stack.map((el, idx) => (
           <div key={idx} style={{}}>
             <Stack>{el}</Stack>
           </div>

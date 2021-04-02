@@ -6,7 +6,8 @@ import MainNav from './components/MainNav';
 import Home from './pages/main/Home';
 import SignUp from './pages/user/SignUp';
 import SignIn from './pages/user/SignIn';
-import UserCard from './components/UserCard';
+import InfoCardCreate from './pages/board/InfoCardCreate';
+import UserCardList from './pages/board/UserCardList';
 
 function App() {
   return (
@@ -17,6 +18,8 @@ function App() {
         <Route path="/" exact render={() => <Home />} />
         <Route path="/signup" render={() => <SignUp />} />
         <Route path="/signin" render={() => <SignIn />} />
+        <Route path="/board" render={() => <UserCardList />} />
+        <Route path="/createcard" render={() => <InfoCardCreate />} />
       </Switch>
     </div>
   );

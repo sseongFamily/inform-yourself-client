@@ -16,6 +16,7 @@ const initialState: UserState = {
     blogUrl: '',
     repositoryUrl: '',
     likeCount: 0,
+    stack: [],
   },
   accessToken: '',
   isLogin: false,
