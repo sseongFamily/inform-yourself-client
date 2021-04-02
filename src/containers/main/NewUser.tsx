@@ -4,11 +4,11 @@ import { UserInfo } from '../../types/userType';
 
 type NewUserProps = {
   newUser: UserInfo[];
+  openModal: () => void;
+  getDetailInfo: (cardId: number) => void;
 };
 
-function NewUser({ newUser }: NewUserProps) {
-  console.log('newUser', newUser);
-
+function NewUser({ newUser, getDetailInfo, openModal }: NewUserProps) {
   return (
     <div
       style={{
@@ -25,7 +25,6 @@ function NewUser({ newUser }: NewUserProps) {
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          border: '1px solid red',
         }}
       >
         {newUser.map((el, idx) => (
@@ -37,6 +36,8 @@ function NewUser({ newUser }: NewUserProps) {
               userName={el.userName}
               oneLineIntroduce={el.oneLineIntroduce}
               stack={el.stack}
+              getDetailInfo={getDetailInfo}
+              openModal={openModal}
             />
           </div>
         ))}

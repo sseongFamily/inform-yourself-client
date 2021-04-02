@@ -45,9 +45,3 @@ export const hotAndNewUserInfo = async () => {
   const info = result.data[0];
   return info;
 };
-
-export const infoCardDetail = async (id: number) => {
-  const result = await axios.get(`/infocard?id=${id}`);
-  const info = result.data[0];
-  return info;
-};

@@ -9,7 +9,7 @@ export const hotAndNewUserInfoAction = (list: HotAndNewInfo) => ({
   payload: list,
 });
 
-export const detailCardInfo = (list: CardInfo[]) => ({
+export const detailCardInfo = (list: CardInfo) => ({
   type: DETAILCARDINFO,
   payload: list,
 });

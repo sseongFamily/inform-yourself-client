@@ -13,4 +13,7 @@ export type UserInfo = {
   userName: string;
   oneLineIntroduce: CardInfo['oneLineIntroduce'];
   stack: string[];
+  getDetailInfo?: (cardId: number) => void;
+  openModal?: () => void;
+  isOpen?: boolean;
 };
