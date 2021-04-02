@@ -4,11 +4,11 @@ import { UserInfo } from '../../types/userType';
 
 type HotUserProps = {
   hotUser: UserInfo[];
+  openModal: () => void;
+  getDetailInfo: (cardId: number) => void;
 };
 
-function HotUser({ hotUser }: HotUserProps) {
-  console.log('hotUser', hotUser);
-
+function HotUser({ hotUser, getDetailInfo, openModal }: HotUserProps) {
   return (
     <div
       style={{
@@ -30,10 +30,13 @@ function HotUser({ hotUser }: HotUserProps) {
         {hotUser.map((el, idx) => (
           <UserCard
             key={idx}
+            cardId={el.cardId}
             profileImage={el.profileImage}
             userName={el.userName}
             oneLineIntroduce={el.oneLineIntroduce}
             stack={el.stack}
+            getDetailInfo={getDetailInfo}
+            openModal={openModal}
           />
         ))}
       </div>

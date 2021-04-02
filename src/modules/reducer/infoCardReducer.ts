@@ -6,7 +6,15 @@ const initialState: CardState = {
     hotUser: [],
     newUser: [],
   },
-  detailList: [],
+  detailList: {
+    infoCardId: -1,
+    title: '',
+    description: '',
+    oneLineIntroduce: '',
+    blogUrl: '',
+    repositoryUrl: '',
+    likeCount: 0,
+  },
 };
 
 const infoCardReducer = (state: CardState = initialState, action: InfoCardAction): CardState => {
