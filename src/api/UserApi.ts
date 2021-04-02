@@ -46,3 +46,9 @@ export const signUp = async (
   }
   return true;
 };
+
+export const hotAndNewUserInfo = async () => {
+  const result = await axios.get('/user/list');
+  const info = result.data[0];
+  return info;
+};

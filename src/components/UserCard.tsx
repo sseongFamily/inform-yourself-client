@@ -10,12 +10,26 @@ const Stack = styled.div`
   line-height: 30px;
 `;
 
+
 function UserCard(props: UserState['userInfo']) {
+  const { getDetailInfo, openModal } = props;
   const makeColor = () => {
     // TODO :  Stack카드 색상 랜덤으로 뿌려주기
   };
 
   const { userName, stack, profileImage, oneLineIntroduce } = props;
+
+  const handleModalAndDetailInfo = () => {
+    if (openModal === undefined) {
+      return;
+    }
+    if (getDetailInfo === undefined) {
+      return;
+    }
+    openModal();
+    getDetailInfo(Number(props.cardId));
+  };
+
   return (
     <div
       style={{
@@ -28,7 +42,10 @@ function UserCard(props: UserState['userInfo']) {
         height: '200px',
         borderRadius: '15%',
         justifyContent: 'space-around',
+        cursor: 'pointer',
+        border: '1px solid black',
       }}
+      onClick={handleModalAndDetailInfo}
     >
       <div className="infoSection" style={{ display: 'flex' }}>
         <div
@@ -44,7 +61,6 @@ function UserCard(props: UserState['userInfo']) {
             flexBasis: '160px',
           }}
         />
-
         <div
           className="content"
           style={{

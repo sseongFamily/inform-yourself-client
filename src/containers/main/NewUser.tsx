@@ -2,27 +2,13 @@ import React, { useState } from 'react';
 import UserCard from '../../components/UserCard';
 import { UserInfo } from '../../types/userType';
 
-function NewUser() {
-  const [fakeUser, setFakeUser] = useState<UserInfo[]>([
-    {
-      profileImage: 'https://picsum.photos/120/100',
-      userName: '성석원',
-      oneLineIntroduce: '가나다라마바사아자차카',
-      stack: ['JavaScript', 'React', 'NodeJs'],
-    },
-    {
-      profileImage: 'https://picsum.photos/120/100',
-      userName: '성석민',
-      oneLineIntroduce: '가나다라마바사아자차카',
-      stack: ['JavaScript', 'React', 'NodeJs', 'TypeScript'],
-    },
-    {
-      profileImage: 'https://picsum.photos/120/100',
-      userName: '성석준',
-      oneLineIntroduce: '가나다라마바사아자차카',
-      stack: ['React', 'NodeJs', 'TypeScript'],
-    },
-  ]);
+type NewUserProps = {
+  newUser: UserInfo[];
+  openModal: () => void;
+  getDetailInfo: (cardId: number) => void;
+};
+
+function NewUser({ newUser, getDetailInfo, openModal }: NewUserProps) {
   return (
     <div
       style={{
@@ -41,14 +27,19 @@ function NewUser() {
           alignItems: 'center',
         }}
       >
-        {fakeUser.map((el, idx) => (
-          <UserCard
-            key={idx}
-            profileImage={el.profileImage}
-            userName={el.userName}
-            oneLineIntroduce={el.oneLineIntroduce}
-            stack={el.stack}
-          />
+        {newUser.map((el, idx) => (
+          <div>
+            <UserCard
+              key={idx}
+              cardId={el.cardId}
+              profileImage={el.profileImage}
+              userName={el.userName}
+              oneLineIntroduce={el.oneLineIntroduce}
+              stack={el.stack}
+              getDetailInfo={getDetailInfo}
+              openModal={openModal}
+            />
+          </div>
         ))}
       </div>
     </div>
