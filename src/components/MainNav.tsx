@@ -1,9 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { UserCircle } from '@styled-icons/boxicons-regular';
 import { Clipboard } from '@styled-icons/bootstrap';
+import { PencilSquare } from '@styled-icons/bootstrap/PencilSquare';
 import styled from 'styled-components';
 import DropDown from './DropDown';
+import { useSelector } from 'react-redux';
+import { RootState } from '../modules/reducer';
 const Nav = styled.div`
   height: 70px;
   box-sizing: border-box;
@@ -26,6 +29,7 @@ const Container = styled.div`
 const InfoCard = styled(Clipboard)`
   margin-left: 100px;
 `;
+const WriteCard = styled(PencilSquare)``;
 const Logo = styled.span`
   font-size: 30px;
 `;
@@ -59,6 +63,8 @@ const SubMenu = styled.ul`
   top: 80px;
 `;
 function MainNav() {
+  const state = useSelector((state: RootState) => state.userReducer);
+  const history = useHistory();
   // TODO: 비로그인시 board, letter, mypage 버튼
   // TODO: 비로그인시 back, letter, myapge 버튼
   // 비로그인 false , 로그인 true
@@ -81,7 +87,10 @@ function MainNav() {
       setMenuCheck(false);
     }
   };
-
+  const handleLink = () => {
+    if (state.isLogin) return '/createcard';
+    return '/signin';
+  };
   useEffect(() => {
     window.addEventListener('click', handleClickOutside);
     return () => {
@@ -94,6 +103,9 @@ function MainNav() {
       <Container>
         <Link to="/infocard">
           <InfoCard size="40" />
+        </Link>
+        <Link to={handleLink}>
+          <WriteCard size="40" />
         </Link>
         <Link to="/">
           <Logo>Inform Yourself</Logo>

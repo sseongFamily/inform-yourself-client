@@ -6,13 +6,14 @@ export type CardState = {
 };
 
 export type CardInfo = {
-  infoCardId: number;
+  infoCardId?: number;
   title: string;
   oneLineIntroduce: string;
   description: string;
   blogUrl: string;
   repositoryUrl: string;
-  likeCount: number;
+  likeCount?: number;
+  stack: string[];
 };
 
 export type HotAndNewInfo = {

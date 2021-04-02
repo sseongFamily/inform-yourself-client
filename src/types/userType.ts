@@ -2,7 +2,7 @@ import { CardInfo } from './infoCardType';
 
 export type UserState = {
   userInfo: UserInfo;
-  cardInfo: CardInfo;
+  cardInfo?: CardInfo;
   accessToken: string;
   isLogin?: boolean;
 };
@@ -11,7 +11,7 @@ export type UserInfo = {
   cardId?: number;
   profileImage: string;
   userName: string;
-  oneLineIntroduce: CardInfo['oneLineIntroduce'];
+  oneLineIntroduce: string;
   stack: string[];
   getDetailInfo?: (cardId: number) => void;
   openModal?: () => void;
