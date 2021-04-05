@@ -73,6 +73,7 @@ function Signin() {
 
   const handleLogin = async () => {
     const userInfo = await login(email, password);
+
     dispatch(userLogin(userInfo));
     history.push('/');
   };

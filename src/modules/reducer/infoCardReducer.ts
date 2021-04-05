@@ -14,6 +14,7 @@ const initialState: CardState = {
     blogUrl: '',
     repositoryUrl: '',
     likeCount: 0,
+    stack: [],
   },
 };
 
