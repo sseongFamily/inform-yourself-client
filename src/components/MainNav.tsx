@@ -7,6 +7,8 @@ import styled from 'styled-components';
 import DropDown from './DropDown';
 import { useSelector } from 'react-redux';
 import { RootState } from '../modules/reducer';
+import { persistor } from '../index';
+
 const Nav = styled.div`
   height: 70px;
   box-sizing: border-box;
@@ -64,11 +66,11 @@ const SubMenu = styled.ul`
 `;
 function MainNav() {
   const state = useSelector((state: RootState) => state.userReducer);
-  const history = useHistory();
+  const { isLogin = false } = state;
+
   // TODO: 비로그인시 board, letter, mypage 버튼
   // TODO: 비로그인시 back, letter, myapge 버튼
   // 비로그인 false , 로그인 true
-  const [isCheck, setIsCheck] = useState(false);
   const [menuCheck, setMenuCheck] = useState(false);
 
   // useRef를 2개로 나눈 이유는 각각의 element 태그 타입이 달라서 !!
@@ -88,7 +90,7 @@ function MainNav() {
     }
   };
   const handleLink = () => {
-    if (state.isLogin) return '/createcard';
+    if (isLogin) return '/createcard';
     return '/signin';
   };
   useEffect(() => {
@@ -96,7 +98,7 @@ function MainNav() {
     return () => {
       window.removeEventListener('click', handleClickOutside);
     };
-  }, [subMenuBoxDiv, subMenuBoxStyle]);
+  }, [subMenuBoxDiv, subMenuBoxStyle, state.isLogin]);
 
   return (
     <Nav>
@@ -110,7 +112,7 @@ function MainNav() {
         <Link to="/">
           <Logo>Inform Yourself</Logo>
         </Link>
-        {isCheck ? (
+        {isLogin ? (
           <Profile onClick={menuToggle} ref={subMenuBoxDiv} />
         ) : (
           <UserInfoBtn size="48" onClick={menuToggle} ref={subMenuBoxStyle} />
@@ -118,7 +120,7 @@ function MainNav() {
       </Container>
       {menuCheck && (
         <SubMenu>
-          <DropDown isCheck={isCheck} />
+          <DropDown isLogin={isLogin} />
         </SubMenu>
       )}
     </Nav>
