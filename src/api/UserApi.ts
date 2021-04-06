@@ -52,5 +52,6 @@ export const signUp = async (
 export const hotAndNewUserInfo = async () => {
   const result = await axios.get('/user/list');
   const info = result.data[0];
+  console.log(info);
   return info;
 };

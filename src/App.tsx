@@ -18,7 +18,7 @@ function App() {
         <Route path="/" exact render={() => <Home />} />
         <Route path="/signup" render={() => <SignUp />} />
         <Route path="/signin" render={() => <SignIn />} />
-        <Route path="/board" render={() => <UserCardList />} />
+        <Route path="/infocard" render={() => <UserCardList />} />
         <Route path="/createcard" render={() => <InfoCardCreate />} />
       </Switch>
     </div>
