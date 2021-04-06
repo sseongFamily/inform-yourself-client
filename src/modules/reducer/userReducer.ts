@@ -25,13 +25,17 @@ const initialState: UserState = {
 const userReducer = (state: UserState = initialState, action: UserAction): UserState => {
   switch (action.type) {
     case 'user/LOGIN':
-      console.log(action.payload);
       return {
         ...state,
         userInfo: action.payload.userInfo,
         cardInfo: action.payload.cardInfo,
         accessToken: action.payload.accessToken,
         isLogin: true,
+      };
+    case 'user/LOGOUT':
+      return {
+        ...state,
+        isLogin: false,
       };
     default:
       return state;

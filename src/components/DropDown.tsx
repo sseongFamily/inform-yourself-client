@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Switch } from 'react-router';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { persistor } from '../index';
+import { RootState } from '../modules/reducer';
+import { userLogout } from '../modules/user';
 
 interface DropDownProps {
-  isCheck: boolean;
+  isLogin: boolean;
 }
 
 const SubMenuList = styled.li`
@@ -15,14 +19,29 @@ const SubMenuList = styled.li`
 `;
 
 function DropDown(props: DropDownProps) {
-  return props.isCheck ? (
+  const dispatch = useDispatch();
+
+  const logout = () => {
+    persistor
+      .purge()
+      .then(() => {
+        //? 이게 뭐냐고
+        return persistor.flush();
+      })
+      .then(() => {
+        //? 이게 뭐냐고
+        persistor.pause();
+        dispatch(userLogout());
+      });
+  };
+  return props.isLogin ? (
     <>
       <Switch>
         <Link to="/mypage">
           <SubMenuList>마이페이지</SubMenuList>
         </Link>
       </Switch>
-      <SubMenuList>로그아웃</SubMenuList>
+      <SubMenuList onClick={logout}>로그아웃</SubMenuList>
     </>
   ) : (
     <>
