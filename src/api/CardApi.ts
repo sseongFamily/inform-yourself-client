@@ -13,3 +13,9 @@ export const createCard = async (cardInfo: CardInfo, accessToken: string): Promi
     }
   );
 };
+
+export const infoCardList = async () => {
+  const result = await axios.get('/infocard/list');
+  const { data } = result;
+  return data;
+};
