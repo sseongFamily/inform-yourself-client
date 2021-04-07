@@ -108,22 +108,22 @@ function MainNav() {
   return (
     <Nav>
       <Container>
-        <Link to="/infocard">
-          <InfoCard size="40" />
-        </Link>
-        <Link to={handleLink}>
-          <WriteCard size="40" />
-        </Link>
+        <div style={{ display: 'flex' }}>
+          <Link to="/infocard">
+            <InfoCard size="40" />
+          </Link>
+          <Link to={handleLink}>
+            <WriteCard size="40" />
+          </Link>
+        </div>
         <Link to="/">
           <Logo>Inform Yourself</Logo>
         </Link>
-        <>
-          {isLogin ? (
-            <Profile onClick={menuToggle} ref={subMenuBoxDiv} />
-          ) : (
-            <UserInfoBtn size="48" onClick={menuToggle} ref={subMenuBoxStyle} />
-          )}
-        </>
+        {isLogin ? (
+          <Profile onClick={menuToggle} ref={subMenuBoxDiv} />
+        ) : (
+          <UserInfoBtn size="48" onClick={menuToggle} ref={subMenuBoxStyle} />
+        )}
       </Container>
       {menuCheck && (
         <SubMenu>
