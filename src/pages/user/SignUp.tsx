@@ -40,6 +40,7 @@ const RightArea = styled.div`
   background-size: contain;
   background-position: center center;
   background-repeat: no-repeat;
+  margin-right: 100px;
 `;
 
 const UserImage = styled.div`
