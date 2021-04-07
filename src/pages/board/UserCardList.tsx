@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { infoCardList } from '../../api/CardApi';
-import UserCard from '../../components/UserCard';
+import UserCard from '../../components/card/UserCard';
 import { newCardList } from '../../modules/infoCard';
 import { RootState } from '../../modules/reducer';
 
@@ -34,6 +34,7 @@ function UserCardList() {
         안녕하세요
         {newUser.map((el) => (
           <UserCard
+            size={'medium'}
             key={el.cardId}
             cardId={el.cardId}
             userName={el.userName}

@@ -49,7 +49,7 @@ const infoCardReducer = (state: CardState = initialState, action: InfoCardAction
         ...state,
         hotAndNewList: {
           hotUser: [...state.hotAndNewList.hotUser],
-          newUser: state.hotAndNewList.hotUser.concat(filterArr),
+          newUser: state.hotAndNewList.newUser.concat(filterArr),
         },
       };
 

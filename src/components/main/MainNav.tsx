@@ -6,8 +6,8 @@ import { PencilSquare } from '@styled-icons/bootstrap/PencilSquare';
 import styled from 'styled-components';
 import DropDown from './DropDown';
 import { useSelector } from 'react-redux';
-import { RootState } from '../modules/reducer';
-import { persistor } from '../index';
+import { RootState } from '../../modules/reducer';
+import { persistor } from '../../index';
 
 const Nav = styled.div`
   height: 70px;
@@ -90,7 +90,12 @@ function MainNav() {
     }
   };
   const handleLink = () => {
-    if (isLogin) return '/createcard';
+    if (isLogin) {
+      if (!state.cardInfo) {
+        return '/createcard';
+      }
+      return '/mypage';
+    }
     return '/signin';
   };
   useEffect(() => {
@@ -112,11 +117,13 @@ function MainNav() {
         <Link to="/">
           <Logo>Inform Yourself</Logo>
         </Link>
-        {isLogin ? (
-          <Profile onClick={menuToggle} ref={subMenuBoxDiv} />
-        ) : (
-          <UserInfoBtn size="48" onClick={menuToggle} ref={subMenuBoxStyle} />
-        )}
+        <>
+          {isLogin ? (
+            <Profile onClick={menuToggle} ref={subMenuBoxDiv} />
+          ) : (
+            <UserInfoBtn size="48" onClick={menuToggle} ref={subMenuBoxStyle} />
+          )}
+        </>
       </Container>
       {menuCheck && (
         <SubMenu>

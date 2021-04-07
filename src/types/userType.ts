@@ -11,9 +11,10 @@ export type UserInfo = {
   cardId?: number;
   profileImage: string;
   userName: string;
-  oneLineIntroduce: string;
-  stack: string[];
+  oneLineIntroduce?: string;
+  stack?: string[] | [];
   getDetailInfo?: (cardId: number) => void;
   openModal?: () => void;
+  size: string;
   isOpen?: boolean;
 };

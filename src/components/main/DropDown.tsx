@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Switch } from 'react-router';
+import { Switch, useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { persistor } from '../index';
-import { RootState } from '../modules/reducer';
-import { userLogout } from '../modules/user';
+import { persistor } from '../../index';
+import { RootState } from '../../modules/reducer';
+import { userLogout } from '../../modules/user';
 
 interface DropDownProps {
   isLogin: boolean;
@@ -20,6 +20,7 @@ const SubMenuList = styled.li`
 
 function DropDown(props: DropDownProps) {
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const logout = () => {
     persistor
@@ -32,15 +33,14 @@ function DropDown(props: DropDownProps) {
         //? 이게 뭐냐고
         persistor.pause();
         dispatch(userLogout());
+        return history.push('/');
       });
   };
   return props.isLogin ? (
     <>
-      <Switch>
-        <Link to="/mypage">
-          <SubMenuList>마이페이지</SubMenuList>
-        </Link>
-      </Switch>
+      <Link to="/mypage">
+        <SubMenuList>마이페이지</SubMenuList>
+      </Link>
       <SubMenuList onClick={logout}>로그아웃</SubMenuList>
     </>
   ) : (

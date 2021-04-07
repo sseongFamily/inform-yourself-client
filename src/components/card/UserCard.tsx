@@ -1,7 +1,7 @@
 import React from 'react';
-import { UserState } from '../types/userType';
+import { UserState } from '../../types/userType';
 import styled from 'styled-components';
-
+import { InfoCardSection } from '../style/InfoCard';
 const Stack = styled.div`
   margin: 0 3%;
   border: 1px solid black;
@@ -9,16 +9,13 @@ const Stack = styled.div`
   height: 30px;
   line-height: 30px;
 `;
-
-
 function UserCard(props: UserState['userInfo']) {
   const { getDetailInfo, openModal } = props;
   const makeColor = () => {
     // TODO :  Stack카드 색상 랜덤으로 뿌려주기
   };
 
-  const { userName, stack, profileImage, oneLineIntroduce } = props;
-
+  const { userName, stack, profileImage, oneLineIntroduce, size } = props;
   const handleModalAndDetailInfo = () => {
     if (openModal === undefined) {
       return;
@@ -31,22 +28,7 @@ function UserCard(props: UserState['userInfo']) {
   };
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        boxSizing: 'border-box',
-        boxShadow: '1px 1px 3px 1px gray ',
-        margin: '2%',
-        width: '300px',
-        height: '200px',
-        borderRadius: '15%',
-        justifyContent: 'space-around',
-        cursor: 'pointer',
-        border: '1px solid black',
-      }}
-      onClick={handleModalAndDetailInfo}
-    >
+    <InfoCardSection size={size} onClick={handleModalAndDetailInfo}>
       <div className="infoSection" style={{ display: 'flex' }}>
         <div
           style={{
@@ -82,13 +64,15 @@ function UserCard(props: UserState['userInfo']) {
       </div>
 
       <div className="stackSection" style={{ margin: '0 5%', display: 'flex' }}>
-        {stack.map((el, idx) => (
-          <div key={idx} style={{}}>
-            <Stack>{el}</Stack>
-          </div>
-        ))}
+        {stack !== undefined
+          ? stack.map((el: string, idx: number) => (
+              <div key={idx} style={{}}>
+                <Stack>{el}</Stack>
+              </div>
+            ))
+          : null}
       </div>
-    </div>
+    </InfoCardSection>
   );
 }
 
