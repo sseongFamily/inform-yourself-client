@@ -15,8 +15,12 @@ const SubMenuList = styled.li`
   padding: 5px;
   width: 120px;
   font-size: 20px;
-  color: #000;
   cursor: pointer;
+  color: black;
+  &:hover {
+    color: #6c63ff;
+    transition: 0.3s;
+  }
 `;
 
 function DropDown(props: DropDownProps) {
