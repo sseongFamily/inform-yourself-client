@@ -10,7 +10,7 @@ const Box = styled.div`
   border-radius: 15%;
   padding-left: 20px;
   padding-top: 20px;
-  margin-left: 5px;
+  margin-left: 10px;
 `;
 
 function SeokMin() {
