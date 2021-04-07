@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import UserCard from '../../components/UserCard';
+import UserCard from '../../components/card/UserCard';
 import { UserInfo } from '../../types/userType';
 
 type NewUserProps = {
@@ -28,18 +28,17 @@ function NewUser({ newUser, getDetailInfo, openModal }: NewUserProps) {
         }}
       >
         {newUser.map((el, idx) => (
-          <div>
-            <UserCard
-              key={idx}
-              cardId={el.cardId}
-              profileImage={el.profileImage}
-              userName={el.userName}
-              oneLineIntroduce={el.oneLineIntroduce}
-              stack={el.stack}
-              getDetailInfo={getDetailInfo}
-              openModal={openModal}
-            />
-          </div>
+          <UserCard
+            size={'medium'}
+            key={idx}
+            cardId={el.cardId}
+            profileImage={el.profileImage}
+            userName={el.userName}
+            oneLineIntroduce={el.oneLineIntroduce}
+            stack={el.stack}
+            getDetailInfo={getDetailInfo}
+            openModal={openModal}
+          />
         ))}
       </div>
     </div>

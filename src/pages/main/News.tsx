@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { infoCardDetail } from '../../api/InfoCard';
-import DetailCard from '../../components/DetailCard';
+import DetailCard from '../../components/card/DetailCard';
 import HotUser from '../../containers/main/HotUser';
 import NewUser from '../../containers/main/NewUser';
 import { detailCardInfo } from '../../modules/infoCard';

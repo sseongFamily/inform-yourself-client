@@ -13,7 +13,7 @@ export type CardInfo = {
   blogUrl: string;
   repositoryUrl: string;
   likeCount?: number;
-  stack: string[];
+  stack?: string[];
 };
 
 export type HotAndNewInfo = {

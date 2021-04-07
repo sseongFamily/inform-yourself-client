@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import UserCard from './UserCard';
+import UserCard from '../card/UserCard';
 
 const Box = styled.div`
-  height: 250px;
-  width: 300px;
+  height: 350px;
+  width: 500px;
   box-sizing: border-box;
   box-shadow: 1px 1px 3px 1px gray;
   border-radius: 15%;
@@ -13,13 +13,14 @@ const Box = styled.div`
   margin-left: 5px;
 `;
 
-function SeokMin() {
+function SeokWon() {
   return (
     <div>
       <UserCard
+        size={'large'}
         profileImage={'../images/signup_img.svg'}
-        userName={'성석민'}
-        oneLineIntroduce={'잘부탁 드립니다.'}
+        userName={'성석원'}
+        oneLineIntroduce={'타입스크립트는 어려워'}
         stack={['javascript', 'node']}
       />
       <Box>
@@ -31,4 +32,4 @@ function SeokMin() {
   );
 }
 
-export default SeokMin;
+export default SeokWon;

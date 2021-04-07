@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
 import { createCard } from '../../api/CardApi';
-import CardInfo from '../../components/CardInfo';
+import CardInfo from '../../components/card/CardInfo';
 import { RootState } from '../../modules/reducer';
+import { userCreateCard } from '../../modules/user';
 
 function CreateInfoCard() {
   const state = useSelector((state: RootState) => state.userReducer);
+  const dispatch = useDispatch();
   const history = useHistory();
 
   const [title, setTitle] = useState<string>('');
@@ -20,7 +22,7 @@ function CreateInfoCard() {
   const handleCardCreate = async () => {
     // TODO : API 요청 보내기
     const { accessToken } = state;
-    await createCard(
+    const result = await createCard(
       {
         title,
         oneLineIntroduce,
@@ -31,7 +33,8 @@ function CreateInfoCard() {
       },
       accessToken
     );
-    history.push('/board');
+    dispatch(userCreateCard(result));
+    history.push('/infocard');
   };
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     switch (e.target.name) {

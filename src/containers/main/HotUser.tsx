@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import UserCard from '../../components/UserCard';
+import UserCard from '../../components/card/UserCard';
 import { UserInfo } from '../../types/userType';
 
 type HotUserProps = {
@@ -29,6 +29,7 @@ function HotUser({ hotUser, getDetailInfo, openModal }: HotUserProps) {
       >
         {hotUser.map((el, idx) => (
           <UserCard
+            size={'medium'}
             key={idx}
             cardId={el.cardId}
             profileImage={el.profileImage}

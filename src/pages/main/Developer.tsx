@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import SeokMin from '../../components/SeokMin';
-import SeokWon from '../../components/SeokWon';
+import SeokMin from '../../components/developer/SeokMin';
+import SeokWon from '../../components/developer/SeokWon';
 
 const DeveloperContainer = styled.div`
   height: 100vh;

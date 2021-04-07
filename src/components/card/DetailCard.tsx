@@ -1,5 +1,5 @@
 import React from 'react';
-import { CardInfo } from '../types/infoCardType';
+import { CardInfo } from '../../types/infoCardType';
 
 type DetailCardProps = {
   isOpen: boolean;

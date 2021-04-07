@@ -7,6 +7,7 @@ const initialState: UserState = {
     oneLineIntroduce: '',
     userName: '',
     stack: [],
+    size: 'medium',
   },
   cardInfo: {
     infoCardId: 0,
@@ -36,6 +37,16 @@ const userReducer = (state: UserState = initialState, action: UserAction): UserS
       return {
         ...state,
         isLogin: false,
+      };
+    case 'user/CREATECARD':
+      return {
+        ...state,
+        userInfo: {
+          ...state.userInfo,
+          oneLineIntroduce: action.payload.userInfo.oneLineIntroduce,
+          stack: action.payload.userInfo.stack,
+        },
+        cardInfo: action.payload.cardInfo,
       };
     default:
       return state;
