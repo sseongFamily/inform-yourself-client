@@ -3,6 +3,7 @@ import { Link, useHistory } from 'react-router-dom';
 import { UserCircle } from '@styled-icons/boxicons-regular';
 import { Clipboard } from '@styled-icons/bootstrap';
 import { PencilSquare } from '@styled-icons/bootstrap/PencilSquare';
+import { Users } from '@styled-icons/feather';
 import styled from 'styled-components';
 import DropDown from './DropDown';
 import { useSelector } from 'react-redux';
@@ -10,39 +11,61 @@ import { RootState } from '../../modules/reducer';
 import { persistor } from '../../index';
 
 const Nav = styled.div`
-  height: 70px;
   box-sizing: border-box;
-  position: relative;
 `;
 
 const Container = styled.div`
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
   border-bottom: 2px solid #333;
   height: 70px;
   box-sizing: border-box;
   position: fixed;
-  justify-content: space-between;
-  align-items: center;
   background-color: white;
   z-index: 10;
 `;
 
 const InfoCard = styled(Clipboard)`
-  margin-left: 100px;
+  margin-left: 50px;
+  color: black;
+  &:hover {
+    color: #6c63ff;
+    transition: 0.3s;
+  }
 `;
-const WriteCard = styled(PencilSquare)``;
+const WriteCard = styled(PencilSquare)`
+  margin-left: 30px;
+  color: black;
+  &:hover {
+    color: #6c63ff;
+    transition: 0.3s;
+  }
+`;
 const Logo = styled.span`
-  font-size: 30px;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 42px;
+  text-decoration: none;
+  color: black;
+  &:hover {
+    color: #6c63ff;
+    transition: 0.3s;
+  }
 `;
 
-const UserInfoBtn = styled(UserCircle)`
-  margin-right: 100px;
+const UserInfoBtn = styled(Users)`
+  margin-right: 50px;
   cursor: pointer;
+  color: black;
+  &:hover {
+    color: #6c63ff;
+    transition: 0.3s;
+  }
 `;
 
 const Profile = styled.div`
-  margin-right: 100px;
+  margin-right: 50px;
   height: 45px;
   width: 45px;
   border-radius: 50%;
@@ -61,7 +84,7 @@ const SubMenu = styled.ul`
   position: fixed;
   z-index: 999;
   list-style: none;
-  right: 56px;
+  right: 10px;
   top: 80px;
 `;
 function MainNav() {
