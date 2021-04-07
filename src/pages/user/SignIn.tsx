@@ -5,7 +5,9 @@ import { login } from '../../api/UserApi';
 import { useDispatch } from 'react-redux';
 import { userLogin } from '../../modules/user';
 import { useHistory } from 'react-router';
-
+import { StyledIconBase } from '@styled-icons/styled-icon';
+import { Bubble } from '@styled-icons/icomoon/Bubble';
+import { Github } from '@styled-icons/evaicons-solid/Github';
 const SignInContainer = styled.div`
   height: 100vh;
   display: flex;
@@ -27,42 +29,55 @@ const RightArea = styled.div`
   background-repeat: no-repeat;
 `;
 
-const UserImage = styled.div`
-  width: 100px;
-  height: 100px;
-  top: 40px;
-  bottom: 40px;
-  margin: -50px auto;
-  border: 1px solid #333;
-  border-radius: 50%;
-`;
+// const UserImage = styled.div`
+//   width: 100px;
+//   height: 100px;
+//   top: 40px;
+//   bottom: 40px;
+//   margin: -50px auto;
+//   border-radius: 50%;
+// `;
 
 const InputDiv = styled.div`
   width: 50%;
-  height: 450px;
+  height: 420px;
   display: flex;
   flex-direction: column;
   margin: 0 auto;
   padding-top: 70px;
-  border: 1px solid #333;
   border-radius: 20px;
+  box-shadow: 1px 1px 3px 1px gray;
 `;
 
 const InputElement = styled.input`
   width: 70%;
   height: 30px;
-  border: 1px solid #333;
+  border: 2px solid lightgray;
+
   border-radius: 30px;
   margin: 10px auto;
+  font-size: 18px;
+  font-weight: bold;
 `;
 
 const ButtonElement = styled.button`
   width: 70%;
   height: 50px;
-  border: 1px solid #333;
+  border: none;
   border-radius: 30px;
   margin: 0 auto;
   margin-top: 20px;
+  background-color: #6c63ff;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.5s;
+
+  &:hover {
+    background-color: #e6e6ef;
+    color: #6c63ff;
+    transition: 0.7s;
+  }
 `;
 
 function Signin() {
@@ -95,7 +110,6 @@ function Signin() {
     <SignInContainer>
       <LeftArea>
         <div>
-          <UserImage></UserImage>
           <InputDiv>
             <InputElement type="text" placeholder="email" name="email" onChange={handleChange} />
             <InputElement
@@ -106,8 +120,41 @@ function Signin() {
             />
             <ButtonElement onClick={handleLogin}>Sign In</ButtonElement>
             <ButtonElement>Sign Up</ButtonElement>
-            <button>Kakao</button>
-            <button>GitHub</button>
+
+            <button
+              style={{
+                border: 'none',
+                width: '70%',
+                height: '50px',
+                margin: '0 auto',
+                borderRadius: '30px',
+                marginTop: '20px',
+                fontWeight: 'bold',
+                fontSize: '20px',
+                backgroundColor: 'yellow',
+              }}
+            >
+              <Bubble size="22px" />
+              &nbsp; Kakao
+            </button>
+
+            <button
+              style={{
+                border: 'none',
+                width: '70%',
+                height: '50px',
+                margin: '0 auto',
+                borderRadius: '30px',
+                marginTop: '20px',
+                fontWeight: 'bold',
+                fontSize: '20px',
+                backgroundColor: 'black',
+                color: 'white',
+              }}
+            >
+              <Github size="22px" />
+              &nbsp;GitHub
+            </button>
           </InputDiv>
         </div>
       </LeftArea>

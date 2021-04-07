@@ -49,18 +49,32 @@ const UserImage = styled.div`
 const InputElement = styled.input`
   width: 70%;
   height: 30px;
-  border: 1px solid #333;
+  border: 2px solid lightgray;
+
   border-radius: 30px;
   margin: 10px auto;
+  font-size: 18px;
+  font-weight: bold;
 `;
 
 const ButtonElement = styled.button`
-  width: 72%;
+  width: 70%;
   height: 50px;
-  border: 1px solid #333;
+  border: none;
   border-radius: 30px;
   margin: 0 auto;
-  margin-top: 100px;
+  margin-top: 20px;
+  background-color: #6c63ff;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.5s;
+
+  &:hover {
+    background-color: #e6e6ef;
+    color: #6c63ff;
+    transition: 0.7s;
+  }
 `;
 
 const BackButton = styled(ArrowBack)`
@@ -161,13 +175,13 @@ function SignUp() {
               onChange={handleChangeInputElement}
             />
             <InputElement
-              type="date"
+              type="text"
               name="birthday"
-              placeholder="birthday"
+              placeholder="ex) 20000101"
               onChange={handleChangeInputElement}
             />
             <ButtonElement onClick={handleRequestSignUp}>Sign Up</ButtonElement>
-            <BackButton size="48" />
+            <ButtonElement>⬅</ButtonElement>
           </InputBox>
         </div>
       </LeftArea>
