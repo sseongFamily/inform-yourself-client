@@ -15,7 +15,6 @@ const H1Element = styled.h1`
 const DeveloperBox = styled.div`
   height: 70%;
   display: flex;
-  border: 1px solid red;
 `;
 
 const SeokWonDiv = styled.div`
