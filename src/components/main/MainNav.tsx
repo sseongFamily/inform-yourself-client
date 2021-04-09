@@ -19,7 +19,7 @@ const Container = styled.div`
   align-items: center;
   width: 100%;
   height: 70px;
-  border-bottom: 2px solid #333;
+  border-bottom: 2px solid #969696;
   box-sizing: border-box;
   position: fixed;
   background-color: white;
@@ -27,14 +27,14 @@ const Container = styled.div`
 `;
 
 const InfoCard = styled(Clipboard)`
-  color: black;
+  color: rgb(52, 58, 64);
   &:hover {
     color: #6c63ff;
     transition: 0.3s;
   }
 `;
 const WriteCard = styled(PencilSquare)`
-  color: black;
+  color: rgb(52, 58, 64);
   &:hover {
     color: #6c63ff;
     transition: 0.3s;
@@ -42,9 +42,12 @@ const WriteCard = styled(PencilSquare)`
 `;
 const Logo = styled.span`
   font-family: 'Noto Sans KR', sans-serif;
-  font-size: 42px;
+  font-size: 50px;
+  position: absolute;
+  top: 10%;
+  left: 40%;
   text-decoration: none;
-  color: black;
+  color: rgb(52, 58, 64);
   &:hover {
     color: #6c63ff;
     transition: 0.3s;
@@ -54,7 +57,7 @@ const Logo = styled.span`
 const UserInfoBtn = styled(Users)`
   margin-right: 100px;
   cursor: pointer;
-  color: black;
+  color: rgb(52, 58, 64);
   &:hover {
     color: #6c63ff;
     transition: 0.3s;
@@ -66,7 +69,7 @@ const Profile = styled.div`
   height: 45px;
   width: 45px;
   border-radius: 50%;
-  border: 1px solid #333;
+  border: 1px solid rgb(52, 58, 64);
   background-image: url('');
   background-size: contain;
   cursor: pointer;
@@ -76,7 +79,7 @@ const SubMenu = styled.ul`
   padding: 0;
   margin: 0;
   background-color: #fff;
-  border: 2px solid #000;
+  border: 2px solid rgb(52, 58, 64);
   border-radius: 10px;
   text-align: center;
   position: fixed;
