@@ -21,29 +21,22 @@ function UserCardList() {
   return (
     <div
       style={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
+        padding: '120px 0 0 100px',
+        display: 'grid',
+        gridTemplateColumns: '1fr 1fr 1fr 1fr',
       }}
     >
-      <div>
-        <h2 style={{ fontSize: '32px', fontWeight: 'bold' }}>게시판</h2>
-      </div>
-      <div>
-        안녕하세요
-        {newUser.map((el) => (
-          <UserCard
-            size={'medium'}
-            key={el.cardId}
-            cardId={el.cardId}
-            userName={el.userName}
-            oneLineIntroduce={el.oneLineIntroduce}
-            profileImage={el.profileImage}
-            stack={el.stack}
-          />
-        ))}
-      </div>
+      {newUser.map((el) => (
+        <UserCard
+          size={'medium'}
+          key={el.cardId}
+          cardId={el.cardId}
+          userName={el.userName}
+          oneLineIntroduce={el.oneLineIntroduce}
+          profileImage={el.profileImage}
+          stack={el.stack}
+        />
+      ))}
     </div>
   );
 }

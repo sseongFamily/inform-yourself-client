@@ -11,7 +11,7 @@ function DetailCard({ isOpen, closeModal, detailList }: DetailCardProps) {
   const { title, description, oneLineIntroduce, blogUrl, repositoryUrl, likeCount } = detailList;
   return isOpen ? (
     <div className="modal">
-      <div style={{ border: '1px solid blue' }}>
+      <div>
         <div>{title}</div>
         <div>{description}</div>
         <div>{oneLineIntroduce}</div>

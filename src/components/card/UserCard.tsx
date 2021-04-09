@@ -3,11 +3,13 @@ import { UserState } from '../../types/userType';
 import styled from 'styled-components';
 import { InfoCardSection } from '../style/InfoCard';
 const Stack = styled.div`
-  margin: 0 3%;
+  height: 10px;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 8px;
+  margin: 5px 5px 0 0;
   border: 1px solid black;
-  border-radius: 25%;
-  height: 30px;
-  line-height: 30px;
+  border-radius: 100px;
 `;
 function UserCard(props: UserState['userInfo']) {
   const { getDetailInfo, openModal } = props;
@@ -63,7 +65,16 @@ function UserCard(props: UserState['userInfo']) {
         </div>
       </div>
 
-      <div className="stackSection" style={{ margin: '0 5%', display: 'flex' }}>
+      <div
+        className="stackSection"
+        style={{
+          padding: '10px',
+          margin: '0 5%',
+          display: 'flex',
+          flexWrap: 'wrap',
+          overflow: 'auto',
+        }}
+      >
         {stack !== undefined
           ? stack.map((el: string, idx: number) => (
               <div key={idx} style={{}}>
