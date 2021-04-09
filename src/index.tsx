@@ -10,6 +10,8 @@ import logger from 'redux-logger';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { persistStore } from 'redux-persist';
 import { PersistGate } from 'redux-persist/integration/react';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(logger)));
 export const persistor = persistStore(store);

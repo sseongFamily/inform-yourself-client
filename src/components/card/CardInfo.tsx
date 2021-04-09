@@ -7,7 +7,14 @@ interface CardProps {
 
 function CardInfo(props: CardProps) {
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', border: '1px solid red' }}>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        border: '1px solid red',
+        marginTop: '20%',
+      }}
+    >
       <input
         style={{
           width: '500px',

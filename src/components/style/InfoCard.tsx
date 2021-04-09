@@ -26,7 +26,7 @@ export const InfoCardSection = styled.div<InfoCard>`
   justify-content: space-around;
   box-sizing: border-box;
   box-shadow: 1px 1px 3px 1px gray;
-  margin: 2%;
+  margin: 20px 2%;
 
   border-radius: 15%;
   cursor: pointer;

@@ -23,7 +23,7 @@ function Home() {
     dispatch(hotAndNewUserInfoAction(list));
   };
   return (
-    <div>
+    <div style={{ boxSizing: 'border-box' }}>
       <Intro />
       <News hotAndNewList={hotAndNewList} />
       <PartnerCompany />
