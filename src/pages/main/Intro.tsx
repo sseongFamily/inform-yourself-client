@@ -15,7 +15,7 @@ function Intro() {
           flexDirection: 'column-reverse',
           width: '50%',
           height: '60%',
-          margin: '0 5%',
+          // margin: '0 5%',
         }}
       >
         <div

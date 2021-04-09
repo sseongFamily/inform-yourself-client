@@ -6,6 +6,8 @@ import { useDispatch } from 'react-redux';
 import { userLogin } from '../../modules/user';
 import { useHistory } from 'react-router';
 import { StyledIconBase } from '@styled-icons/styled-icon';
+import { EmailOutline } from '@styled-icons/evaicons-outline';
+import { LockPassword } from '@styled-icons/remix-fill';
 import { Bubble } from '@styled-icons/icomoon/Bubble';
 import { Github } from '@styled-icons/evaicons-solid/Github';
 const SignInContainer = styled.div`
@@ -53,15 +55,14 @@ const InputElement = styled.input`
   width: 70%;
   height: 30px;
   border: 2px solid lightgray;
-
   border-radius: 30px;
-  margin: 10px auto;
+  margin: 10px 20px;
   font-size: 18px;
   font-weight: bold;
 `;
 
 const ButtonElement = styled.button`
-  width: 70%;
+  width: 85%;
   height: 50px;
   border: none;
   border-radius: 30px;
@@ -111,20 +112,25 @@ function Signin() {
       <LeftArea>
         <div>
           <InputDiv>
-            <InputElement type="text" placeholder="email" name="email" onChange={handleChange} />
-            <InputElement
-              type="password"
-              placeholder="password"
-              name="password"
-              onChange={handleChange}
-            />
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <EmailOutline size="30" style={{ paddingLeft: '20px' }} />
+              <InputElement type="text" placeholder="email" name="email" onChange={handleChange} />
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <LockPassword size="30" style={{ paddingLeft: '20px' }} />
+              <InputElement
+                type="password"
+                placeholder="password"
+                name="password"
+                onChange={handleChange}
+              />
+            </div>
             <ButtonElement onClick={handleLogin}>Sign In</ButtonElement>
             <ButtonElement>Sign Up</ButtonElement>
-
             <button
               style={{
                 border: 'none',
-                width: '70%',
+                width: '85%',
                 height: '50px',
                 margin: '0 auto',
                 borderRadius: '30px',
@@ -141,7 +147,7 @@ function Signin() {
             <button
               style={{
                 border: 'none',
-                width: '70%',
+                width: '85%',
                 height: '50px',
                 margin: '0 auto',
                 borderRadius: '30px',

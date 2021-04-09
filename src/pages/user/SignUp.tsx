@@ -4,6 +4,11 @@ import SignUpImage from '../../images/signup_img.svg';
 import { ArrowBack } from '@styled-icons/evaicons-solid';
 import { signUp } from '../../api/UserApi';
 import { useHistory } from 'react-router';
+import { EmailOutline } from '@styled-icons/evaicons-outline';
+import { LockPassword } from '@styled-icons/remix-fill';
+import { UserCheck } from '@styled-icons/boxicons-regular';
+import { Telephone } from '@styled-icons/bootstrap';
+import { BirthdayCake } from '@styled-icons/fa-solid';
 
 const SignUpContainer = styled.div`
   height: 100vh;
@@ -24,7 +29,8 @@ const InputBox = styled.div`
   height: 450px;
   margin: 0 auto;
   padding-top: 70px;
-  border: 1px solid #333;
+  border-radius: 20px;
+  box-shadow: 1px 1px 3px 1px gray;
   border-radius: 20px;
 `;
 
@@ -34,6 +40,7 @@ const RightArea = styled.div`
   background-size: contain;
   background-position: center center;
   background-repeat: no-repeat;
+  margin-right: 100px;
 `;
 
 const UserImage = styled.div`
@@ -50,15 +57,14 @@ const InputElement = styled.input`
   width: 70%;
   height: 30px;
   border: 2px solid lightgray;
-
   border-radius: 30px;
-  margin: 10px auto;
+  margin: 10px 20px;
   font-size: 18px;
   font-weight: bold;
 `;
 
 const ButtonElement = styled.button`
-  width: 70%;
+  width: 85%;
   height: 50px;
   border: none;
   border-radius: 30px;
@@ -75,17 +81,6 @@ const ButtonElement = styled.button`
     color: #6c63ff;
     transition: 0.7s;
   }
-`;
-
-const BackButton = styled(ArrowBack)`
-  width: 72%;
-  height: 30px;
-  border: 1px solid #333;
-  border-radius: 30px;
-  margin: 0 auto;
-  margin-top: 30px;
-  background-color: #efefef;
-  cursor: pointer;
 `;
 
 function SignUp() {
@@ -150,36 +145,58 @@ function SignUp() {
         <div>
           <UserImage></UserImage>
           <InputBox>
-            <InputElement
-              type="text"
-              name="email"
-              placeholder="email"
-              onChange={handleChangeInputElement}
-            />
-            <InputElement
-              type="password"
-              name="password"
-              placeholder="password"
-              onChange={handleChangeInputElement}
-            />
-            <InputElement
-              type="text"
-              name="userName"
-              placeholder="Name"
-              onChange={handleChangeInputElement}
-            />
-            <InputElement
-              type="text"
-              name="phoneNumber"
-              placeholder="ex) 01012345678"
-              onChange={handleChangeInputElement}
-            />
-            <InputElement
-              type="text"
-              name="birthday"
-              placeholder="ex) 20000101"
-              onChange={handleChangeInputElement}
-            />
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <EmailOutline size="30" style={{ paddingLeft: '20px' }} />
+              <InputElement
+                type="text"
+                name="email"
+                placeholder="email"
+                onChange={handleChangeInputElement}
+              />
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <LockPassword size="30" style={{ paddingLeft: '20px' }} />
+              <InputElement
+                type="password"
+                name="password"
+                placeholder="password"
+                onChange={handleChangeInputElement}
+              />
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <UserCheck size="30" style={{ paddingLeft: '20px' }} />
+              <InputElement
+                type="text"
+                name="userName"
+                placeholder="Name"
+                onChange={handleChangeInputElement}
+              />
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <Telephone size="30" style={{ paddingLeft: '20px' }} />
+              <InputElement
+                type="text"
+                name="phoneNumber"
+                placeholder="ex) 01012345678"
+                onChange={handleChangeInputElement}
+              />
+            </div>
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                boxSizing: 'border-box',
+              }}
+            >
+              <BirthdayCake size="30" style={{ paddingLeft: '20px' }} />
+              <InputElement
+                type="text"
+                name="birthday"
+                placeholder="ex) 20000101"
+                onChange={handleChangeInputElement}
+              />
+            </div>
             <ButtonElement onClick={handleRequestSignUp}>Sign Up</ButtonElement>
             <ButtonElement>⬅</ButtonElement>
           </InputBox>

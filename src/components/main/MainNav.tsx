@@ -8,7 +8,6 @@ import styled from 'styled-components';
 import DropDown from './DropDown';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../modules/reducer';
-import { persistor } from '../../index';
 
 const Nav = styled.div`
   box-sizing: border-box;
@@ -19,8 +18,8 @@ const Container = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  border-bottom: 2px solid #333;
   height: 70px;
+  border-bottom: 2px solid #333;
   box-sizing: border-box;
   position: fixed;
   background-color: white;
@@ -28,7 +27,6 @@ const Container = styled.div`
 `;
 
 const InfoCard = styled(Clipboard)`
-  margin-left: 50px;
   color: black;
   &:hover {
     color: #6c63ff;
@@ -36,7 +34,6 @@ const InfoCard = styled(Clipboard)`
   }
 `;
 const WriteCard = styled(PencilSquare)`
-  margin-left: 30px;
   color: black;
   &:hover {
     color: #6c63ff;
@@ -55,7 +52,7 @@ const Logo = styled.span`
 `;
 
 const UserInfoBtn = styled(Users)`
-  margin-right: 50px;
+  margin-right: 100px;
   cursor: pointer;
   color: black;
   &:hover {
@@ -65,7 +62,7 @@ const UserInfoBtn = styled(Users)`
 `;
 
 const Profile = styled.div`
-  margin-right: 50px;
+  margin-right: 100px;
   height: 45px;
   width: 45px;
   border-radius: 50%;
@@ -78,13 +75,14 @@ const Profile = styled.div`
 const SubMenu = styled.ul`
   padding: 0;
   margin: 0;
+  background-color: #fff;
   border: 2px solid #000;
   border-radius: 10px;
   text-align: center;
   position: fixed;
   z-index: 999;
   list-style: none;
-  right: 10px;
+  right: 57px;
   top: 80px;
 `;
 function MainNav() {
@@ -131,7 +129,14 @@ function MainNav() {
   return (
     <Nav>
       <Container>
-        <div style={{ display: 'flex' }}>
+        <div
+          style={{
+            display: 'flex',
+            width: '10%',
+            justifyContent: 'space-between',
+            marginLeft: '100px',
+          }}
+        >
           <Link to="/infocard">
             <InfoCard size="40" />
           </Link>
