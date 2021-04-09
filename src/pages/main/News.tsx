@@ -45,14 +45,12 @@ function News({ hotAndNewList }: NewsProps) {
           display: 'flex',
           flexDirection: 'column',
           height: '100vh',
+          border: '1px solid red',
+          justifyContent: 'space-around',
         }}
       >
-        <div>
-          <NewUser newUser={newUser} openModal={openModal} getDetailInfo={getDetailInfo} />
-        </div>
-        <div>
-          <HotUser hotUser={hotUser} openModal={openModal} getDetailInfo={getDetailInfo} />
-        </div>
+        <NewUser newUser={newUser} openModal={openModal} getDetailInfo={getDetailInfo} />
+        <HotUser hotUser={hotUser} openModal={openModal} getDetailInfo={getDetailInfo} />
       </div>
       <DetailCard isOpen={isOpen} closeModal={closeModal} detailList={detailList} />
     </>
