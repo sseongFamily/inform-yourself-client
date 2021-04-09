@@ -1,10 +1,31 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
 import { createCard } from '../../api/CardApi';
 import CardInfo from '../../components/card/CardInfo';
 import { RootState } from '../../modules/reducer';
 import { userCreateCard } from '../../modules/user';
+import styled from 'styled-components';
+
+const ButtonElement = styled.button`
+  width: 20%;
+  height: 50px;
+  border: none;
+  border-radius: 30px;
+  margin: 0 auto;
+  margin-top: 20px;
+  background-color: #6c63ff;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.5s;
+
+  &:hover {
+    background-color: #e6e6ef;
+    color: #6c63ff;
+    transition: 0.7s;
+  }
+`;
 
 function CreateInfoCard() {
   const state = useSelector((state: RootState) => state.userReducer);
@@ -18,6 +39,17 @@ function CreateInfoCard() {
   const [blogUrl, setBlogUrl] = useState<string>('');
   const [inputStack, setInputStack] = useState<string>('');
   const [newstack, setStack] = useState<string[]>([]);
+
+  useEffect(() => {
+    console.log(newstack);
+  }, [newstack]);
+
+  const handleRemoveStack = (deleteStack: string): void => {
+    const modifyStack = newstack.filter((stack) => {
+      return stack !== deleteStack;
+    });
+    setStack(modifyStack);
+  };
 
   const handleCardCreate = async () => {
     // TODO : API 요청 보내기
@@ -36,7 +68,7 @@ function CreateInfoCard() {
     dispatch(userCreateCard(result));
     history.push('/infocard');
   };
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     switch (e.target.name) {
       case 'title':
         return setTitle(e.target.value);
@@ -61,20 +93,13 @@ function CreateInfoCard() {
   };
   return (
     <>
-      <CardInfo handleInputChange={handleInputChange} inputStack={inputStack} />
-      <div style={{ display: 'flex' }}>
-        {newstack.map((el, idx) => (
-          <p key={idx} style={{ marginRight: '7%' }}>
-            {el}
-          </p>
-        ))}
-      </div>
-      <button
-        style={{ background: 'none', width: '120px', height: '30px', marginTop: '5%' }}
-        onClick={handleCardCreate}
-      >
-        등록하기
-      </button>
+      <CardInfo
+        handleInputChange={handleInputChange}
+        inputStack={inputStack}
+        newstack={newstack}
+        handleRemoveStack={handleRemoveStack}
+      />
+      <ButtonElement onClick={handleCardCreate}>등록하기</ButtonElement>
     </>
   );
 }
