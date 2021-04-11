@@ -17,7 +17,8 @@ const sizeStyle = css<{ size: string }>`
     props.size === 'large' &&
     css`
       width: 500px;
-      height: 350px;
+      height: 280px;
+      box-shadow: 1px 1px 3px 1px #746eee;
     `}
 `;
 export const InfoCardSection = styled.div<InfoCard>`

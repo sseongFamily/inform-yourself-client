@@ -8,6 +8,7 @@ const initialState: UserState = {
     userName: '',
     stack: [],
     size: 'medium',
+    modify: false,
   },
   cardInfo: {
     infoCardId: 0,
@@ -18,6 +19,7 @@ const initialState: UserState = {
     repositoryUrl: '',
     likeCount: 0,
     stack: [],
+    modify: false,
   },
   accessToken: '',
   isLogin: false,
@@ -47,6 +49,23 @@ const userReducer = (state: UserState = initialState, action: UserAction): UserS
           stack: action.payload.userInfo.stack,
         },
         cardInfo: action.payload.cardInfo,
+      };
+    case 'user/MODIFY':
+      return {
+        ...state,
+        userInfo: {
+          ...state.userInfo,
+          modify: true,
+        },
+      };
+
+    case 'user/SAVE':
+      return {
+        ...state,
+        userInfo: {
+          ...state.userInfo,
+          modify: false,
+        },
       };
     default:
       return state;

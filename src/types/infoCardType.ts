@@ -14,6 +14,7 @@ export type CardInfo = {
   repositoryUrl: string;
   likeCount?: number;
   stack?: string[];
+  modify?: boolean;
 };
 
 export type HotAndNewInfo = {

@@ -16,5 +16,6 @@ export type UserInfo = {
   getDetailInfo?: (cardId: number) => void;
   openModal?: () => void;
   size: string;
+  modify?: boolean;
   isOpen?: boolean;
 };
