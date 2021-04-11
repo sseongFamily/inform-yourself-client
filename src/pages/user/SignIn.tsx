@@ -10,6 +10,7 @@ import { EmailOutline } from '@styled-icons/evaicons-outline';
 import { LockPassword } from '@styled-icons/remix-fill';
 import { Bubble } from '@styled-icons/icomoon/Bubble';
 import { Github } from '@styled-icons/evaicons-solid/Github';
+import { Link } from 'react-router-dom';
 const SignInContainer = styled.div`
   height: 100vh;
   display: flex;
@@ -94,6 +95,9 @@ function Signin() {
     history.push('/');
   };
 
+  const moveSignup = () => {
+    history.push('/signup');
+  };
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     switch (e.target.name) {
       case 'email':
@@ -126,7 +130,7 @@ function Signin() {
               />
             </div>
             <ButtonElement onClick={handleLogin}>Sign In</ButtonElement>
-            <ButtonElement>Sign Up</ButtonElement>
+            <ButtonElement onClick={moveSignup}>Sign Up</ButtonElement>
             <button
               style={{
                 border: 'none',

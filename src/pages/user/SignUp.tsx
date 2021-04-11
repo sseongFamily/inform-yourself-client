@@ -92,6 +92,9 @@ function SignUp() {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [birthday, setBirthday] = useState('');
 
+  const moveSignin = () => {
+    history.push('/signin');
+  };
   const handleChangeInputElement = (event: ChangeEvent<HTMLInputElement>) => {
     switch (event.target.name) {
       case 'email':
@@ -198,7 +201,7 @@ function SignUp() {
               />
             </div>
             <ButtonElement onClick={handleRequestSignUp}>Sign Up</ButtonElement>
-            <ButtonElement>⬅</ButtonElement>
+            <ButtonElement onClick={moveSignin}>⬅</ButtonElement>
           </InputBox>
         </div>
       </LeftArea>

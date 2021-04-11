@@ -45,7 +45,6 @@ function News({ hotAndNewList }: NewsProps) {
           display: 'flex',
           flexDirection: 'column',
           height: '100vh',
-          border: '1px solid red',
           justifyContent: 'space-around',
         }}
       >
