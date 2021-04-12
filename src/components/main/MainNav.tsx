@@ -8,6 +8,7 @@ import styled from 'styled-components';
 import DropDown from './DropDown';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../modules/reducer';
+import { UserPin } from '@styled-icons/boxicons-solid/UserPin';
 
 const Nav = styled.div`
   box-sizing: border-box;
@@ -64,6 +65,18 @@ const UserInfoBtn = styled(Users)`
   }
 `;
 
+const UserNoImage = styled(UserPin)`
+  margin-right: 100px;
+  height: 45px;
+  width: 45px;
+  cursor: pointer;
+  color: rgb(52, 58, 64);
+  &:hover {
+    color: #6c63ff;
+    transition: 0.3s;
+  }
+`;
+
 const Profile = styled.div`
   margin-right: 100px;
   height: 45px;
@@ -91,6 +104,7 @@ const SubMenu = styled.ul`
 function MainNav() {
   const state = useSelector((state: RootState) => state.userReducer);
   const { isLogin = false } = state;
+  const { profileImage } = state.userInfo;
 
   // TODO: 비로그인시 board, letter, mypage 버튼
   // TODO: 비로그인시 back, letter, myapge 버튼
@@ -151,7 +165,11 @@ function MainNav() {
           <Logo>Inform Yourself</Logo>
         </Link>
         {isLogin ? (
-          <Profile onClick={menuToggle} ref={subMenuBoxDiv} />
+          profileImage ? (
+            <Profile onClick={menuToggle} ref={subMenuBoxDiv} />
+          ) : (
+            <UserNoImage onClick={menuToggle} ref={subMenuBoxStyle} />
+          )
         ) : (
           <UserInfoBtn size="48" onClick={menuToggle} ref={subMenuBoxStyle} />
         )}
