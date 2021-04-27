@@ -7,22 +7,18 @@ export const login = async (email: string, password: string): Promise<UserState>
     password,
   });
   const { accessToken } = result.data;
-
-  const info = await axios.get('/user', {
-    headers: {
-      Authorization: `Bearer ${accessToken}`,
-    },
-  });
+  axios.defaults.headers['Authorization'] = `Bearer ${accessToken}`;
+  const info = await axios.get('/user');
 
   const { userInfo, userCard } = info.data;
 
   //? server로 받은 데이터의 userCard 정보가 없을 수도 있다 !! 그럴 경우 userInfo와 토큰만 넘겨준다.
   if (userCard.length === 0) {
-    return { userInfo, accessToken };
+    return { userInfo };
   }
   userInfo.oneLineIntroduce = userCard[0].oneLineIntroduce;
   userInfo.stack = [...userCard[0].stack];
-  return { userInfo, cardInfo: userCard[0], accessToken };
+  return { userInfo, cardInfo: userCard[0] };
 };
 
 export const signUp = async (
