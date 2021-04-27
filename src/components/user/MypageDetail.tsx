@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { CardInfo } from '../../types/infoCardType';
 import styled from 'styled-components';
 
@@ -29,6 +29,29 @@ const MypageInput = styled.input`
 `;
 function MypageDetail(props: CardInfo) {
   const { title, repositoryUrl, blogUrl, description, modify } = props;
+  const [newTitle, setTitle] = useState<string>(title);
+  const [newDescription, setDescription] = useState<string>(description);
+  const [newRepositoryUrl, setRepo] = useState<string>(repositoryUrl);
+  const [newBlogUrl, setBlog] = useState<string>(blogUrl);
+
+  const inputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    switch (e.target.name) {
+      case 'title':
+        setTitle(e.target.value);
+        break;
+      case 'description':
+        setDescription(e.target.value);
+        break;
+      case 'repo':
+        setRepo(e.target.value);
+        break;
+      case 'blog':
+        setBlog(e.target.value);
+        break;
+      default:
+        break;
+    }
+  };
   return modify ? (
     <div
       className="boxcont"
@@ -43,13 +66,13 @@ function MypageDetail(props: CardInfo) {
       }}
     >
       <h2 style={{ fontSize: '22px', fontWeight: 'bold', marginBottom: '3% 0' }}>Title</h2>
-      <MypageInput type="text" value={title} />
+      <MypageInput type="text" value={newTitle} name={'title'} onChange={inputChange} />
       <h2 style={{ fontSize: '22px', fontWeight: 'bold', marginBottom: '2%' }}>Introduce</h2>
-      <MypageInput type="text" value={description} />
+      <MypageInput type="text" value={newDescription} name={'description'} onChange={inputChange} />
       <h2 style={{ fontSize: '22px', fontWeight: 'bold', marginBottom: '2%' }}>Rpository URL</h2>
-      <MypageInput type="text" value={repositoryUrl} />
+      <MypageInput type="text" value={newRepositoryUrl} name={'repo'} onChange={inputChange} />
       <h2 style={{ fontSize: '22px', fontWeight: 'bold', marginBottom: '2%' }}>Blog URL</h2>
-      <MypageInput type="text" value={blogUrl} />
+      <MypageInput type="text" value={newBlogUrl} name={'blog'} onChange={inputChange} />
     </div>
   ) : (
     <div
@@ -65,13 +88,13 @@ function MypageDetail(props: CardInfo) {
       }}
     >
       <h2 style={{ fontSize: '22px', fontWeight: 'bold', marginBottom: '2%' }}>Title</h2>
-      <DetailInfo>{title}</DetailInfo>
+      <DetailInfo>{newTitle}</DetailInfo>
       <h2 style={{ fontSize: '22px', fontWeight: 'bold', marginBottom: '2%' }}>Introduce</h2>
-      <DetailInfo>{description}</DetailInfo>
+      <DetailInfo>{newDescription}</DetailInfo>
       <h2 style={{ fontSize: '22px', fontWeight: 'bold', marginBottom: '2%' }}>Rpository URL</h2>
-      <DetailInfo>{repositoryUrl}</DetailInfo>
+      <DetailInfo>{newRepositoryUrl}</DetailInfo>
       <h2 style={{ fontSize: '22px', fontWeight: 'bold', marginBottom: '2%' }}>Blog URL</h2>
-      <DetailInfo>{blogUrl}</DetailInfo>
+      <DetailInfo>{newBlogUrl}</DetailInfo>
     </div>
   );
 }
