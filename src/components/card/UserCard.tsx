@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { UserState } from '../../types/userType';
 import styled from 'styled-components';
 import { InfoCardSection } from '../style/InfoCard';
@@ -36,6 +36,20 @@ function UserCard(props: UserState['userInfo']) {
     // TODO :  Stack카드 색상 랜덤으로 뿌려주기
   };
   const { userName, stack, profileImage, oneLineIntroduce, size, modify } = props;
+  const [newUserName, setName] = useState<string>(userName);
+  const [newOneLine, setIntroduce] = useState<string>(oneLineIntroduce || '');
+  const inputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    switch (e.target.name) {
+      case 'name':
+        setName(e.target.value);
+        break;
+      case 'oneLine':
+        setIntroduce(e.target.value);
+        break;
+      default:
+        break;
+    }
+  };
   const handleModalAndDetailInfo = () => {
     if (openModal === undefined) {
       return;
@@ -65,10 +79,10 @@ function UserCard(props: UserState['userInfo']) {
         />
         <Content>
           <div className="name" style={{ flexGrow: 0 }}>
-            <UserCardInput type="text" value={userName} />
+            <UserCardInput type="text" name={'name'} value={newUserName} onChange={inputChange} />
           </div>
           <div className="oneLine" style={{ flexGrow: 0, marginTop: '10%', fontSize: '18px' }}>
-            <UserCardInput type="text" value={oneLineIntroduce} />
+            <UserCardInput type="text" name={'oneLine'} value={newOneLine} onChange={inputChange} />
           </div>
         </Content>
       </div>
@@ -110,10 +124,10 @@ function UserCard(props: UserState['userInfo']) {
         />
         <Content>
           <div className="name" style={{ flexGrow: 0 }}>
-            <h2 style={{ fontSize: '28px' }}>{userName}</h2>
+            <h2 style={{ fontSize: '28px' }}>{newUserName}</h2>
           </div>
           <div className="oneLine" style={{ flexGrow: 0, marginTop: '10%', fontSize: '18px' }}>
-            {oneLineIntroduce}
+            {newOneLine}
           </div>
         </Content>
       </div>
