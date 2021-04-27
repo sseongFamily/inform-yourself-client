@@ -21,7 +21,6 @@ const initialState: UserState = {
     stack: [],
     modify: false,
   },
-  accessToken: '',
   isLogin: false,
 };
 
@@ -32,7 +31,6 @@ const userReducer = (state: UserState = initialState, action: UserAction): UserS
         ...state,
         userInfo: action.payload.userInfo,
         cardInfo: action.payload.cardInfo,
-        accessToken: action.payload.accessToken,
         isLogin: true,
       };
     case 'user/LOGOUT':

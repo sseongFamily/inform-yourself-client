@@ -53,18 +53,15 @@ function CreateInfoCard() {
 
   const handleCardCreate = async () => {
     // TODO : API 요청 보내기
-    const { accessToken } = state;
-    const result = await createCard(
-      {
-        title,
-        oneLineIntroduce,
-        description,
-        blogUrl,
-        repositoryUrl,
-        stack: newstack,
-      },
-      accessToken
-    );
+
+    const result = await createCard({
+      title,
+      oneLineIntroduce,
+      description,
+      blogUrl,
+      repositoryUrl,
+      stack: newstack,
+    });
     dispatch(userCreateCard(result));
     history.push('/infocard');
   };
